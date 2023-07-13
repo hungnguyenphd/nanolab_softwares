@@ -1,0 +1,33 @@
+  SYSTEM =  C
+ Startparameter for this Run:
+   NWRITE =      1;   LPETIM=F    write-flag & timer
+   ISTART =      0    job   : 0-new  1-cont  2-samecut
+   PREC= medium
+   GGA = PE
+ Electronic Relaxation 1
+   NELM   =     100;   
+   EDIFF  =    1E-08   stopping-criterion for ELM
+ Ionic Relaxation c-
+   NSW    =     0    number of steps for IOM
+   NBLOCK =      1; 
+   IBRION =     -1    ionic relax: 0-MD 1-quasi-New 2-CG
+   ISIF   =     2    stress and relaxation
+   ISYM   =      2
+   IVDW = 11
+   LCORR  =      T    Harris-correction to forces
+   LDIAG = T 
+   LCHARG = .F.
+   EDIFFG = -1E-03
+   VOSKOWN = 1
+   ISPIN = 2
+   LWAVE =.F.
+   ISMEAR = 0;
+   POTIM = 0.1
+   LCORR = T
+  DOS related values:
+   IALGO  =      48    algorithm
+   SIGMA  =    .2  broadening in eV -4-tet -1-fermi 0-gaus
+   LREAL  =   False    real-space projection
+ #  NPAR = 8
+   NCORE = 8
+   ENCUT = 500

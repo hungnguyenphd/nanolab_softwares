@@ -21,18 +21,15 @@ OFLAG      = -O2
 OFLAG_IN   = $(OFLAG)
 DEBUG      = -O0
 
-#MKLROOT    = /home/share/opt/oneapi/mkl/2022.0.2/include
-MKLROOT    = /home/share/opt/oneapi/mkl/latest
 MKL_PATH   = $(MKLROOT)/lib/intel64
 BLAS       =
 LAPACK     =
-BLACS      = -lmkl_blacs_intelmpi_lp64
+BLACS      = -lmkl_blacs_intelmpi_lp64 -lgfortran
 SCALAPACK  = $(MKL_PATH)/libmkl_scalapack_lp64.a $(BLACS)
 
 OBJECTS    = fftmpiw.o fftmpi_map.o fft3dlib.o fftw3d.o
 
-#INCS       =-I$(HOME)/vasp_lib/fftw-3.3.10_Build/include
-INCS       =-I/home/share/opt/oneapi/mkl/2022.0.2/include/fftw
+INCS       =-I$(MKLROOT)/include/fftw
 
 LLIBS      = $(SCALAPACK) $(LAPACK) $(BLAS)
 
@@ -79,4 +76,4 @@ GENCODE_ARCH    := -gencode=arch=compute_30,code=\"sm_30,compute_30\" \
                    -gencode=arch=compute_35,code=\"sm_35,compute_35\" \
                    -gencode=arch=compute_60,code=\"sm_60,compute_60\"
 
-MPI_INC    = /home/share/opt/oneapi/mpi/2021.5.1/include
+MPI_INC    = $(I_MPI_ROOT)/include64/
