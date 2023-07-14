@@ -1,0 +1,95 @@
+# Created by GDIS version 0.90.0
+#
+
+SystemLabel      ZnS_qd
+
+NumberOfAtoms    22
+
+NumberOfSpecies  2
+%block ChemicalSpeciesLabel
+    1   30  Zn
+    2   16  S
+%endblock ChemicalSpeciesLabel
+
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+  23.4600000000    0.0000000000    0.0000000000
+ -11.7300000001   20.3169559727    0.0000000000
+  -0.0000000001   -0.0000000002   20.0000000000
+%endblock LatticeVectors
+
+AtomicCoordinatesFormat Fractional
+%block AtomicCoordinatesAndAtomicSpecies
+     0.717588057     0.763871786     0.342588930    1
+     0.773146869     0.708324355     0.339489894    2
+     0.550921390     0.763871786     0.342588930    1
+     0.606480203     0.708324355     0.339489894    2
+     0.439813536     0.708324355     0.339489894    2
+     0.717588057     0.597205119     0.342588930    1
+     0.773146869     0.541657688     0.339489894    2
+     0.550921390     0.597205119     0.342588930    1
+     0.606480203     0.541657688     0.339489894    2
+     0.384254724     0.597205119     0.342588930    1
+     0.439813536     0.541657688     0.339489894    2
+     0.717588057     0.430538453     0.342588930    1
+     0.773146869     0.374991022     0.339489894    2
+     0.550921390     0.430538453     0.342588930    1
+     0.606480203     0.374991022     0.339489894    2
+     0.384254724     0.430538453     0.342588930    1
+     0.439813536     0.374991022     0.339489894    2
+     0.717588057     0.263871786     0.342588930    1
+     0.550921390     0.263871786     0.342588930    1
+     0.606480203     0.208324355     0.339489894    2
+     0.384254724     0.263871786     0.342588930    1
+     0.439813536     0.208324355     0.339489894    2
+%endblock AtomicCoordinatesAndAtomicSpecies
+###########################################################
+###########################################################
+PAO.BasisSize     DZP
+SpinPolarized    true
+PAO.EnergyShift   0.03 eV
+MD.TypeOfRun      CG
+MaxSCFIterations  1000
+MD.NumCGsteps     00
+MD.MaxForceTol    0.005  eV/Ang
+MeshCutoff        300 Ry
+DM.MixingWeight   0.10
+DM.NumberPulay   3
+WriteCoorXmol   .true.
+WriteMullikenPop    1
+XC.functional       GGA
+XC.authors          PBE
+SolutionMethod  diagon
+#############################
+BandLinesScale	ReciprocalLatticeVectors
+
+%block BandLines
+  1   0.0   0.0   0.0     \Gamma       
+  50  0.5   0.0   0.0      M
+  50  0.33  0.33  0.0     K
+  50  0.0  0.0   0.0     \Gamma  
+%endblock BandLines
+
+# 5) K-SAMPLING 
+
+#KgridCutoff       0.0 Ang
+
+%block kgrid_Monkhorst_Pack
+   1   0   0   0.0
+   0   1   0   0.0
+   0   0   1   0.0
+%endblock kgrid_Monkhorst_Pack
+
+#############################
+ProjectedDensityOfStates 
+%block ProjectedDensityOfStates
+   -20.0   5.0   0.050   4000   eV
+%endblock ProjectedDensityOfStates
+UseSaveData     true
+DM.UseSaveDM    true
+MD.UseSaveXV    true
+MD.UseSaveCG    true
+
+WriteCoorXmol		true
+WriteCoorCerius		true
+WriteMDXmol		true
